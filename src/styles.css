@@ -1,0 +1,183 @@
+:root {
+  --bg: #111;
+  --surface: #1c1c1c;
+  --border: #2e2e2e;
+  --gold: #c9a227;
+  --gold-dim: #7a5e10;
+  --text: #e8e0d0;
+  --text-dim: #777;
+  --red: #c0392b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-size: 13px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#app { display: flex; flex-direction: column; height: 100%; }
+
+/* ── Header ── */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 12px 0;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.tabs { display: flex; gap: 2px; }
+
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 5px 10px 6px;
+  transition: color 0.1s, border-color 0.1s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-pane {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 10px 12px;
+}
+.tab-pane.active { display: flex; }
+
+/* ── Search row ── */
+.search-row { display: flex; gap: 6px; margin-bottom: 8px; flex-shrink: 0; }
+
+.search-row input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 8px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.search-row input:focus { border-color: var(--gold-dim); }
+.search-row input::placeholder { color: var(--text-dim); }
+
+.btn {
+  background: var(--gold-dim);
+  border: none;
+  border-radius: 4px;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--gold); color: #111; }
+
+/* ── Results ── */
+.results { flex: 1; overflow-y: auto; }
+
+.results::-webkit-scrollbar { width: 4px; }
+.results::-webkit-scrollbar-track { background: transparent; }
+.results::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Hiscores ── */
+.player-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-grid { display: grid; gap: 1px; }
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 1fr 36px 72px;
+  align-items: center;
+  padding: 3px 4px;
+  border-radius: 3px;
+}
+.skill-row:nth-child(even) { background: rgba(255, 255, 255, 0.03); }
+.skill-row.overall {
+  background: rgba(201, 162, 39, 0.08);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+  padding-bottom: 6px;
+}
+
+.skill-name { color: var(--text); }
+.skill-level { color: var(--gold); font-weight: 600; text-align: right; }
+.skill-rank { color: var(--text-dim); font-size: 11px; text-align: right; }
+
+/* ── GE Price ── */
+.ge-result { padding: 10px 0; }
+
+.item-name {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.item-price {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.item-id {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+
+/* ── States ── */
+.loading { color: var(--text-dim); padding: 10px 0; }
+.error { color: var(--red); padding: 10px 0; }
+
+/* ── Citadel placeholder ── */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 8px;
+  text-align: center;
+}
+.placeholder-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.placeholder-sub { font-size: 12px; color: var(--text-dim); max-width: 220px; line-height: 1.5; }

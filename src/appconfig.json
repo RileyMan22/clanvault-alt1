@@ -1,0 +1,16 @@
+{
+  "appName": "ClanVault",
+  "description": "RS3 clan management companion — hiscores, GE prices, and citadel tracking",
+  "appUrl": "./index.html",
+  "configUrl": "./appconfig.json",
+  "iconUrl": "./icon.png",
+  "defaultWidth": 380,
+  "defaultHeight": 520,
+  "minWidth": 300,
+  "minHeight": 400,
+  "maxWidth": 600,
+  "maxHeight": 800,
+  "requestHandlers": [],
+  "activators": [],
+  "permissions": "pixel,overlay"
+}

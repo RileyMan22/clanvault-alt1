@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClanVault</title>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <span class="logo">ClanVault</span>
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="hiscores">Hiscores</button>
+        <button class="tab-btn" data-tab="geprice">GE Price</button>
+        <button class="tab-btn" data-tab="citadel">Citadel</button>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Hiscores -->
+      <div id="hiscores" class="tab-pane active">
+        <div class="search-row">
+          <input id="hiscores-input" type="text" placeholder="Player name…" maxlength="12" autocomplete="off" />
+          <button id="hiscores-btn" class="btn">Lookup</button>
+        </div>
+        <div id="hiscores-results" class="results"></div>
+      </div>
+
+      <!-- GE Price -->
+      <div id="geprice" class="tab-pane">
+        <div class="search-row">
+          <input id="ge-input" type="text" placeholder="Item name…" autocomplete="off" />
+          <button id="ge-btn" class="btn">Search</button>
+        </div>
+        <div id="ge-results" class="results"></div>
+      </div>
+
+      <!-- Citadel -->
+      <div id="citadel" class="tab-pane">
+        <div class="placeholder">
+          <p class="placeholder-title">Citadel Tracker</p>
+          <p class="placeholder-sub">Coming soon — weekly cap status for your clan.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>

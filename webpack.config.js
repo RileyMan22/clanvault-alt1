@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
@@ -12,6 +13,14 @@ module.exports = {
   mode: "production",
   devtool: false,
   resolve: { extensions: [".tsx", ".ts", ".mjs", ".jsx", ".js"] },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "index.html" },
+        { from: "appconfig.json" },
+      ],
+    }),
+  ],
   module: {
     rules: [
       {
@@ -25,12 +34,6 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
-        type: "asset/resource",
-        generator: { filename: "[name][ext]" },
-      },
-      {
-        // Copy index.html and appconfig.json to dist as-is
-        test: /\.(html|json)$/,
         type: "asset/resource",
         generator: { filename: "[name][ext]" },
       },
